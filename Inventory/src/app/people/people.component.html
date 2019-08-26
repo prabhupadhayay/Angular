@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="col s12 ">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+            <div class="row">
+              <div class='col s5'>
+                <form #peopleForm="ngForm" (ngSubmit)="onSubmit(peopleForm)">
+                  <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="peopleService.selectedPeople._id">
+    <div class="row">
+      <div class="input-field col s12">
+        <input type="text" name="firstName" #name="ngModel" [(ngModel)]="peopleService.selectedPeople.firstName" placeholder="Enter First Name" required>
+        <label>First Name:
+          <label class="red-text">*</label>
+        </label>
+      </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+          <input type="text" name="lastName" #name="ngModel" [(ngModel)]="peopleService.selectedPeople.lastName" placeholder="Enter Last Name">
+          <label>Last Name:</label>
+        </div>
+      </div>
+      <div class="row">
+          <div class="input-field col s12 datepicker" >
+            <input type="date" class="datepicker" name="dob" #name="ngModel" [(ngModel)]="peopleService.selectedPeople.dob" placeholder="Enter Date of Birth">
+            <label>dob:</label>
+          </div>
+        </div>
+  <!-- <div class='row'>
+        <div class="input-field col s12">
+  
+  
+           <select name="status" #name="ngModel" [(ngModel)]="peopleService.selectedPeople.Status">
+  
+             <option *ngFor="let sta of status " [value]="sta.Id"> {{sta.name}}</option>
+  
+           </select>
+           <label>Select the Status:</label>
+          </div>
+  
+        </div> -->
+  
+  <div class="row">
+    <div class="input-field col s12">
+      <button class="btn btn-custom right" type="button" (click)="resetForm(peopleForm)" >Reset</button>
+      <button class="btn btn-custom right" type="submit" [disabled]='!peopleForm.valid'>Submit</button>
+      <button class="btn btn-custom right" type="button"[disabled]="!peopleForm.valid" (click)="onUp(peopleForm)" >Update</button>
+  
+    </div>
+  </div>
+  
+  
+            </form>
+              </div>
+              <div class="col s7">
+  <table class="responsive-table highlight">
+    <thead>
+      <tr>
+  <th>firstName</th>
+  <th>lastName</th>
+  <th>dob:</th>
+  <!-- <th>status</th> -->
+  <th></th>
+      </tr>
+    </thead>
+    <tr *ngFor='let peo of peopleService.peoples'>
+      <td>{{peo.firstName}}</td>
+      <td>{{peo.lastName}}</td>
+      <td>{{peo.dob}}</td>
+      <!-- <td>{{peo.Status}}</td> -->
+      <a class= "action-btn" (click)="onEdit(peo)">
+        <i class="material-icons">edit</i>
+      </a>
+      <a class= "action-btn" (click)="onDelete(peo._id,peopleForm)">
+          <i class="material-icons ">delete</i>
+        </a>
+    </tr>
+  </table>
+              </div>
+  
+  
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
