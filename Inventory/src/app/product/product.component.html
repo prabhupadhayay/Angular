@@ -8,7 +8,7 @@
                 <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="productService.selectedProduct._id">
   <div class="row">
     <div class="input-field col s12">
-      <input type="text" name="productName" #name="ngModel" [(ngModel)]="productService.selectedProduct.productName" placeholder="Enter  Name" required>
+      <input type="text" name="productName" #name="ngModel" [(ngModel)]="productService.selectedProduct.productName" placeholder="" required>
       <label>Product Name:
         <label class="red-text">*</label>
       </label>
@@ -16,13 +16,13 @@
   </div>
   <div class="row">
       <div class="input-field col s12">
-        <input type="number" name="quantity" #name="ngModel" [(ngModel)]="productService.selectedProduct.quantity" placeholder="Enter quantity">
+        <input type="number" name="quantity" #name="ngModel" [(ngModel)]="productService.selectedProduct.quantity" placeholder="">
         <label>quantity:</label>
       </div>
     </div>
      <div class="row">
         <div class="input-field col s12 " >
-          <input type="number" name="rate" #name="ngModel" [(ngModel)]="productService.selectedProduct.rate" placeholder="Enter Price">
+          <input type="number" name="rate" #name="ngModel" [(ngModel)]="productService.selectedProduct.rate" placeholder="">
           <label>Price:</label>
         </div>
       </div> 

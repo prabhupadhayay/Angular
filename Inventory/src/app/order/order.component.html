@@ -8,7 +8,7 @@
                 <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="orderService.selectedOrder._id">
   <div class="row">
     <div class="input-field col s12">
-      <input type="text" name="customerName" #name="ngModel" [(ngModel)]="orderService.selectedOrder.customerName" placeholder="Enter customer Name" required>
+      <input type="text" name="customerName" #name="ngModel" [(ngModel)]="orderService.selectedOrder.customerName" placeholder="" required>
       <label>Customer Name:
         <label class="red-text">*</label>
       </label>
@@ -17,12 +17,13 @@
   <div class="row">
       <div class="input-field col s12">
         <input type="number" name="customerContact" #name="ngModel" [(ngModel)]="orderService.selectedOrder.customerContact" placeholder="">
+
         <label>Contact:</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input type="text" name="productName" #name="ngModel" [(ngModel)]="orderService.selectedOrder.productName" placeholder="search for products" required>
+        <input type="text" name="productName" #name="ngModel" [(ngModel)]="orderService.selectedOrder.productName" placeholder="" required>
         <label>Product Name:
           <label class="red-text">*</label>
         </label>

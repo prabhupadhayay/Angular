@@ -1,1 +1,43 @@
-<p>setting works!</p>
+<mat-card>
+
+		<div class="row">
+				<div class="col s12 m6">
+						<div class="col s12 m8">
+				  <div class="card blue-grey darken-1">
+					<div class="card-content white-text">
+					  <span class="card-title">Setting</span>
+					 <form #settingForm="ngForm" (ngSubmit)="onSubmit(settingForm)">
+							<div class="row">
+									<div class="input-field col s12">
+									  <input type="text" name="userName" #name="ngModel" [(ngModel)]="userService.selectedUser.userName" placeholder="" required>
+									  <label>Change UserName:</label>
+										
+									</div>
+								  </div>
+
+								  <div class="row">
+										<div class="input-field col s12">
+										  <input type="password" name="password" #name="ngModel" [(ngModel)]="userService.selectedUser.password" placeholder="" required>
+										  <label>Change Password:</label>
+											
+										</div>
+									  </div>
+
+									  <div class="row">
+											<div class="input-field col s12">
+											  <button class="btn btn-custom right" type="button" (click)="resetForm(userForm)" >Reset</button>
+											  <!-- <button class="btn btn-custom right" type="submit" [disabled]='!userForm.valid'>Submit</button> -->
+											  <button class="btn btn-custom right" type="button"[disabled]="!userForm.valid" (click)="onUp(userForm)" >Update</button>
+										  
+											</div>
+										  </div>
+					 </form>
+					</div>
+					
+					</div>
+				  </div>
+				</div>
+			  </div>
+					 
+
+</mat-card>

@@ -8,7 +8,7 @@
                   <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="peopleService.selectedPeople._id">
     <div class="row">
       <div class="input-field col s12">
-        <input type="text" name="firstName" #name="ngModel" [(ngModel)]="peopleService.selectedPeople.firstName" placeholder="Enter First Name" required>
+        <input type="text" name="firstName" #name="ngModel" [(ngModel)]="peopleService.selectedPeople.firstName" placeholder="" required>
         <label>First Name:
           <label class="red-text">*</label>
         </label>
@@ -16,13 +16,13 @@
     </div>
     <div class="row">
         <div class="input-field col s12">
-          <input type="text" name="lastName" #name="ngModel" [(ngModel)]="peopleService.selectedPeople.lastName" placeholder="Enter Last Name">
+          <input type="text" name="lastName" #name="ngModel" [(ngModel)]="peopleService.selectedPeople.lastName" placeholder="">
           <label>Last Name:</label>
         </div>
       </div>
       <div class="row">
           <div class="input-field col s12 datepicker" >
-            <input type="date" class="datepicker" name="dob" #name="ngModel" [(ngModel)]="peopleService.selectedPeople.dob" placeholder="Enter Date of Birth">
+            <input type="date" class="datepicker" name="dob" #name="ngModel" [(ngModel)]="peopleService.selectedPeople.dob" placeholder="">
             <label>dob:</label>
           </div>
         </div>
