@@ -1,0 +1,53 @@
+<!-- <div class="row">
+    <div class="col s12 ">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text"> -->
+            <!-- <div class="row">
+              <div class='col s5'> -->
+                  <form novalidate [formGroup]="FormGroup">
+                      <div class="row">
+                          <div style="margin-top:0 px;" formGroupName="itemRows">
+                        <!-- <div class="row panel-heading text-bold">  Registration Form </div> -->
+ <ng-container *ngIf="FormGroup.controls.itemRows!=null"> 
+     <div *ng For="let itemrow of FormGroup.controls.itemRows.controls;let i=index" [formGroupName]='i' >
+        <!-- <div class="row"> -->
+            <!-- <div class="col-md-2 form-group"> -->
+                <input matInput placeholder="name" formControlName="Name">
+            <!-- </div> -->
+        <!-- </div> -->
+        <div class="row">
+                <div class="col-md-2 form-group">
+                    <input matInput placeholder="Rollno" formControlName="Rollno">
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-2 form-group">
+                        <input matInput placeholder="class" formControlName="class">
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-2 form-group">
+                            <input  matInput placeholder="MobileNo" formControlName="Mobile No">
+                        </div>
+                    </div>
+                    <button (click)='deleteRow(i)'class="btn btn-danger">
+                        delete
+                    </button>
+    </div>
+ </ng-container> 
+<div class="form-group" style="text-align:right">
+<button type="button"(click)="addnewRow()" [disabled]="FormGroup.invalid" class="btn btn-primary">
+    Add More
+</button>
+</div>
+
+
+                    </div>
+                            </div>                   
+</form>
+<!-- </div>
+</div> -->
+<!-- </div>
+</div>
+</div>
+</div> -->
