@@ -1,53 +1,73 @@
-<!-- <div class="row">
-    <div class="col s12 ">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text"> -->
-            <!-- <div class="row">
-              <div class='col s5'> -->
-                  <form novalidate [formGroup]="FormGroup">
-                      <div class="row">
-                          <div style="margin-top:0 px;" formGroupName="itemRows">
-                        <!-- <div class="row panel-heading text-bold">  Registration Form </div> -->
- <ng-container *ngIf="FormGroup.controls.itemRows!=null"> 
-     <div *ng For="let itemrow of FormGroup.controls.itemRows.controls;let i=index" [formGroupName]='i' >
-        <!-- <div class="row"> -->
-            <!-- <div class="col-md-2 form-group"> -->
-                <input matInput placeholder="name" formControlName="Name">
-            <!-- </div> -->
-        <!-- </div> -->
-        <div class="row">
-                <div class="col-md-2 form-group">
-                    <input matInput placeholder="Rollno" formControlName="Rollno">
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <label>
+          First Name:
+          <input type="text" formControlName="firstName" required>
+        </label>
+      
+        <label>
+          Last Name:
+          <input type="text" formControlName="lastName">
+        </label>
+      
+        <div formGroupName="address">
+          <h3>Address</h3>
+      
+          <label>
+            Street:
+            <input type="text" formControlName="street">
+          </label>
+      
+          <div formArrayName="aliases">
+                <h3>Aliases</h3> <button (click)="addAlias()">Add Alias</button>
+            
+                <div *ngFor="let address of aliases.controls; let i=index" [formControlName]="i" >
+                  <!-- The repeated alias template -->
+                  <label>
+                    Alias:
+                    <input type="text" [formControlName]="i">
+                  </label>
+                  <button (click)="deleteRow(i)" [formControlName]="i">Delete Alias</button>
                 </div>
-            </div>
-            <div class="row">
-                    <div class="col-md-2 form-group">
-                        <input matInput placeholder="class" formControlName="class">
-                    </div>
-                </div>
-                <div class="row">
-                        <div class="col-md-2 form-group">
-                            <input  matInput placeholder="MobileNo" formControlName="Mobile No">
-                        </div>
-                    </div>
-                    <button (click)='deleteRow(i)'class="btn btn-danger">
-                        delete
-                    </button>
-    </div>
- </ng-container> 
-<div class="form-group" style="text-align:right">
-<button type="button"(click)="addnewRow()" [disabled]="FormGroup.invalid" class="btn btn-primary">
-    Add More
-</button>
-</div>
+               
+              </div>
 
 
-                    </div>
-                            </div>                   
-</form>
-<!-- </div>
-</div> -->
-<!-- </div>
-</div>
-</div>
-</div> -->
+          <label>
+            City:
+            <input type="text" formControlName="city">
+          </label>
+          
+          <label>
+            State:
+            <input type="text" formControlName="state">
+          </label>
+      
+          <label>
+            Zip Code:
+            <input type="text" formControlName="zip">
+          </label>
+        </div>
+      
+        
+      
+        <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+      </form>
+      
+      <hr>
+      
+      
+      <p>
+        Form Value: {{ profileForm.value | json }}
+      </p>
+      
+      
+      <p>
+        Form Status: {{ profileForm.status }}
+      </p>
+      
+      <p>
+        <button (click)="updateProfile()">Update Profile</button>
+      </p>
+      
+      
+    

@@ -1,49 +1,63 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import{FormGroup,FormBuilder,FormControl,FormArray} from '@angular/forms';
+import{FormGroup,FormBuilder,FormControl,FormArray,Validators} from '@angular/forms';
 import { CommonModule } from '@angular/common';  
 import { BrowserModule } from '@angular/platform-browser';
+import{OrderService} from '../shared/order.service';
+import{Order} from '../shared/order';
 
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
   styleUrls: ['./student.component.scss']
 })
-export class StudentComponent implements OnInit {
-title='my Angular';
-FormGroup:FormGroup;
-totalRow:number;
-  constructor(private _fb:FormBuilder) { }
+export class StudentComponent {
+  profileForm = this.fb.group({
+    Name: ['', Validators.required],
+    lastName: [''],
+    address: this.fb.group({
+      street: [''],
+      city: [''],
+      state: [''],
+      zip: ['']
+    }),
+    aliases: this.fb.array([
+      this.fb.control('')
+    ])
+  });
 
-  ngOnInit():void {
-    this.FormGroup=this._fb.group({
-      itemRows:this._fb.array([this.initItemRow()]),
+  get aliases() {
+    return this.profileForm.get('aliases') as FormArray;
+  }
+
+  constructor(private fb: FormBuilder, public OrderService:OrderService) { }
+
+
+  updateProfile() {
+    this.profileForm.patchValue({
+      firstName: 'Nancy',
+      address: {
+        street: '123 Drew Street'
+      }
+    });
+  }
+
+  refreshOrderList(){
+    this.OrderService.getOrderList().subscribe((res)=>{
+
+      this.OrderService.orders= res as Order[];
     })
   }
-  initItemRow(){
-    return this._fb.group({
-      Name:[''],
-      Rollno:[''],
-      class:[''],
-      MobileNo:['']
-    })
-  }
 
-  addnewRow(){
-    const control=<FormArray> this.FormGroup.controls['itemRows'];
-    control.push(this.initItemRow());
+  addAlias() {
+    this.aliases.push(this.fb.control(''));
   }
-  deleteRow(index:number){
-    const control =<FormArray>this.FormGroup.controls['itemRows'];
-    if(control!=null){
-      this.totalRow=control.value.length;
-    }
-    if(this.totalRow>1){
-      control.removeAt(index);
-    }else{
-      alert('one row is mandatory');
-      return false;
-    }
+deleteRow(index:number){
+  this.aliases.removeAt(index);
+}
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.profileForm.value);
   }
 }
