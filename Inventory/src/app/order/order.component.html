@@ -4,11 +4,11 @@
       <div class="card-content white-text">
           <div class="row">
             <div class='col s5'>
-              <form #orderForm="ngForm" (ngSubmit)="onSubmit(orderForm)">
-                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="orderService.selectedOrder._id">
+                <form [formGroup]="orderForm" (ngSubmit)="onSubmit(orderForm)">
+                <input type="hidden" name="_id" formControlName="_id" [(ngModel)]="orderService.selectedOrder._id">
   <div class="row">
     <div class="input-field col s12">
-      <input type="text" name="customerName" #name="ngModel" [(ngModel)]="orderService.selectedOrder.customerName" placeholder="" required>
+      <input type="text" name="customerName" formControlName="customerName" [(ngModel)]="orderService.selectedOrder.customerName" placeholder="" required>
       <label>Customer Name:
         <label class="red-text">*</label>
       </label>
@@ -16,14 +16,14 @@
   </div>
   <div class="row">
       <div class="input-field col s12">
-        <input type="number" name="customerContact" #name="ngModel" [(ngModel)]="orderService.selectedOrder.customerContact" placeholder="">
+        <input type="number" name="customerContact" formControlName="customerContact" [(ngModel)]="orderService.selectedOrder.customerContact" placeholder="">
 
         <label>Contact:</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input type="text" name="productName" #name="ngModel" [(ngModel)]="orderService.selectedOrder.productName" placeholder="" required>
+        <input type="text" name="productName" formControlName="productName" [(ngModel)]="orderService.selectedOrder.productName" placeholder="" required>
         <label>Product Name:
           <label class="red-text">*</label>
         </label>
@@ -34,19 +34,19 @@
 
      <div class="row">
         <div class="input-field col s12 " >
-          <input type="number" name="rate" #name="ngModel" [(ngModel)]="orderService.selectedOrder.rate" placeholder="">
+          <input type="number" name="rate" formControlName="rate" [(ngModel)]="orderService.selectedOrder.rate" placeholder="">
           <label>Price:</label>
         </div>
       </div> 
       <div class="row">
         <div class="input-field col s12 " >
-          <input type="number" name="quantity" #name="ngModel" [(ngModel)]="orderService.selectedOrder.quantity" placeholder="">
+          <input type="number" name="quantity" formControlName="quantity" [(ngModel)]="orderService.selectedOrder.quantity" placeholder="">
           <label>Quantity:</label>
         </div>
       </div> 
       <div class="row">
         <div class="input-field col s12 " >
-          <input type="number" name="totalAmount" #name="ngModel" [(ngModel)]="orderService.selectedOrder.totalAmount" placeholder="">
+          <input type="number" name="totalAmount" formControlName="totalAmount" [(ngModel)]="orderService.selectedOrder.totalAmount" placeholder="">
           <label>Total Amount:</label>
         </div>
       </div> 

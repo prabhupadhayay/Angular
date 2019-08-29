@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {PeopleService} from '../shared/people.service';
+import {PeopleService} from '../shared/people/people.service';
 
-import { People } from  "../shared/people";
+import { People } from  "../shared/people/people";
 import {Status} from './status';
 declare var M: any;
 @Component({

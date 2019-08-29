@@ -1,7 +1,7 @@
 import {NgForm} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import{CustomerService} from '../shared/customer.service';
-import{Customer} from '../shared/customer';
+import{CustomerService} from '../shared/customer/customer.service';
+import{Customer} from '../shared/customer/customer';
 import {Status} from './status';
 declare var M: any;
 @Component({
@@ -33,7 +33,7 @@ export class CustomerComponent implements OnInit {
       _id:null,
       customerName: '',
       customerContact: null,
-      
+
     };
   }
 
@@ -73,4 +73,3 @@ export class CustomerComponent implements OnInit {
     })
   }
 }
-

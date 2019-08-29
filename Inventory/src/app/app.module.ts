@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -17,12 +17,12 @@ import { StudentComponent } from './student/student.component';
 import { ClientsModule } from './clients/clients.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import {HttpClientModule} from '@angular/common/http'; 
+import {HttpClientModule} from '@angular/common/http';
 
- import {CustomerService} from './shared/customer.service';
- import {PeopleService} from './shared/people.service';
- import {ProductService} from './shared/product.service';
- import{OrderService} from './shared/order.service';
+ import {CustomerService} from './shared/customer/customer.service';
+ import {PeopleService} from './shared/people/people.service';
+ import {ProductService} from './shared/product/product.service';
+ import{OrderService} from './shared/order/order.service';
 
 
 

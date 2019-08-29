@@ -3,32 +3,41 @@
           First Name:
           <input type="text" formControlName="firstName" required>
         </label>
-      
+
         <label>
           Last Name:
           <input type="text" formControlName="lastName">
         </label>
-      
+
         <div formGroupName="address">
           <h3>Address</h3>
-      
+
           <label>
             Street:
             <input type="text" formControlName="street">
           </label>
-      
+
           <div formArrayName="aliases">
                 <h3>Aliases</h3> <button (click)="addAlias()">Add Alias</button>
-            
+
                 <div *ngFor="let address of aliases.controls; let i=index" [formControlName]="i" >
                   <!-- The repeated alias template -->
                   <label>
                     Alias:
                     <input type="text" [formControlName]="i">
                   </label>
+                  <label>
+                    product:
+                    <input type="text" [formControlName]="i">
+                  </label>
+                  <label>
+                    price:
+                    <input type="text" [formControlName]="i">
+                  </label>
+
                   <button (click)="deleteRow(i)" [formControlName]="i">Delete Alias</button>
                 </div>
-               
+
               </div>
 
 
@@ -36,38 +45,35 @@
             City:
             <input type="text" formControlName="city">
           </label>
-          
+
           <label>
             State:
             <input type="text" formControlName="state">
           </label>
-      
+
           <label>
             Zip Code:
             <input type="text" formControlName="zip">
           </label>
         </div>
-      
-        
-      
+
+
+
         <button type="submit" [disabled]="!profileForm.valid">Submit</button>
       </form>
-      
+
       <hr>
-      
-      
+
+
       <p>
         Form Value: {{ profileForm.value | json }}
       </p>
-      
-      
+
+
       <p>
         Form Status: {{ profileForm.status }}
       </p>
-      
+
       <p>
         <button (click)="updateProfile()">Update Profile</button>
       </p>
-      
-      
-    

@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import{FormGroup,FormBuilder,FormControl,FormArray,Validators} from '@angular/forms';
-import { CommonModule } from '@angular/common';  
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import{OrderService} from '../shared/order.service';
-import{Order} from '../shared/order';
+import{OrderService} from '../shared/order/order.service';
+import{Order} from '../shared/order/order';
 
 @Component({
   selector: 'app-student',

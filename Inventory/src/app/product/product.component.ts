@@ -1,7 +1,7 @@
 import {NgForm} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import{ProductService} from '../shared/product.service';
-import{Product} from '../shared/product';
+import{ProductService} from '../shared/product/product.service';
+import{Product} from '../shared/product/product';
 import {Status} from './status';
 declare var M: any;
 @Component({
@@ -34,7 +34,7 @@ export class ProductComponent implements OnInit {
       productName: '',
       quantity: null,
       rate:null
-      
+
     };
   }
 
@@ -74,4 +74,3 @@ export class ProductComponent implements OnInit {
     })
   }
 }
-

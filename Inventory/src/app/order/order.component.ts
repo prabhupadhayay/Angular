@@ -1,7 +1,9 @@
 import {NgForm} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import{OrderService} from '../shared/order.service';
-import{Order} from '../shared/order';
+import{OrderService} from '../shared/order/order.service';
+import{FormGroup,FormBuilder,FormControl,FormArray,Validators} from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import{Order} from '../shared/order/order';
 import {Status} from './status';
 declare var M: any;
 @Component({
@@ -12,7 +14,8 @@ declare var M: any;
 })
 export class OrderComponent implements OnInit {
 
-  constructor(public orderService: OrderService) { }
+
+  constructor(public orderService: OrderService,private fb: FormBuilder) { }
   status:Status[];
 
   ngOnInit() {
@@ -38,7 +41,7 @@ export class OrderComponent implements OnInit {
       rate:null,
       quantity:null,
       totalAmount:null
-      
+
     };
   }
 
@@ -78,4 +81,3 @@ export class OrderComponent implements OnInit {
     })
   }
 }
-
