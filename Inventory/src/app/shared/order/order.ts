@@ -6,5 +6,5 @@ export class Order{
     productName:String;
     rate:Number;
     quantity:Number;
-    totalAmount:Number;
+    totalAmount:Number; 
 }

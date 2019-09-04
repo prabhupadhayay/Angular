@@ -6,6 +6,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CustomerComponent } from './customer/customer.component';
@@ -49,6 +50,7 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     CommonModule
+
   ],
   providers: [CustomerService,PeopleService,ProductService,OrderService],
   bootstrap: [AppComponent]

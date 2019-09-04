@@ -1,8 +1,8 @@
 
-<mat-card>
-
+<div class="card blue-grey lighten-4">
+  <div class="card-content black-text">
 <form [formGroup]="orderForm" (ngSubmit)="onSubmit(orderForm)">
-
+  <input type="hidden"   formControlName="_id" id="_id">
     <mat-form-field class="full-width-field">
       <input type="text" matInput placeholder="Enter Customer Name"  formControlName="customerName" id="customerName">
     </mat-form-field>
@@ -32,7 +32,7 @@
     <button type="button" mat-mini-fab color="accent" title="remove product"
      (click)="removeProductButtonClick(i)">
       x
-      </button>
+  </button>    <!--    -->
       </div>
   <br/>
   </div>
@@ -52,4 +52,5 @@
           (click) = "onSubmit(orderForm)" >
        Submit  </button>
 </form>
-</mat-card>
+</div>
+</div>

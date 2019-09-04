@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import{CustomerService} from '../shared/customer/customer.service';
 import{Customer} from '../shared/customer/customer';
 import {Status} from './status';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 declare var M: any;
 @Component({
   selector: 'app-customer',

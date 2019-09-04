@@ -3,8 +3,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import{MatInputModule} from '@angular/material/input';
-
-const MaterialComponents=[MatButtonModule,MatCheckboxModule,MatCardModule,MatInputModule]
+import {MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material';
+const MaterialComponents=[MatPaginatorModule,MatTableModule,MatButtonModule,MatCheckboxModule,MatCardModule,MatInputModule]
 @NgModule({
 
   imports: [MaterialComponents],
