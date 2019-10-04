@@ -1,8 +1,8 @@
-// import {NgForm} from '@angular/forms';
+import {NgForm} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import{OrderService} from '../shared/order/order.service';
-// import{Order} from '../shared/order/order';
-// import {Status} from './status';
+import{Order} from '../shared/order/order';
+//import {Status} from './status';
 import { FormGroup, FormBuilder,FormArray } from '@angular/forms';
 
 
@@ -31,7 +31,8 @@ export class OrderComponent implements OnInit {
     });
   }
   onSubmit() {
-    alert('Your Email is : ');
+    //alert('Your Email is : ');
+    
   }
   // status:Status[];
 addProductButtonClick():void{
