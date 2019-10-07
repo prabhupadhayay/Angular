@@ -1,23 +1,22 @@
+<!--Mat Toolbar -->
+<mat-toolbar color="grey">
+  <mat-toolbar-row>
+    <h1>Angular </h1>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+    <span class="menu-spacer"></span>
+    <div _ngcontent-tmv-c1="" class="flex-spacer"></div>
+    <div>
+      <a mat-button [routerLink]="'/home'" routerLinkActive="active"> Home </a>
+      <a mat-button [routerLink]="'/customer'" routerLinkActive="active"> Customer </a>
+      <a mat-button [routerLink]="'/order'" routerLinkActive="active"> Orders </a>
+      <a mat-button [routerLink]="'/product'" routerLinkActive="active"> Products </a>
+    </div>
+  </mat-toolbar-row>
 
-      <!--Mat Toolbar -->
-      <mat-toolbar color="grey">
-        <mat-toolbar-row>
-          <h1>Angular </h1>
-          <button mat-icon-button>
-              <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
-            </button>
-          <span class="menu-spacer"></span>
-          <div _ngcontent-tmv-c1="" class="flex-spacer"></div>
-          <div >
-            <a mat-button [routerLink]="'/home'" routerLinkActive="active"> Home </a>
-            <a mat-button [routerLink]="'/customer'" routerLinkActive="active"> Customer </a>
-            <a mat-button [routerLink]="'/order'" routerLinkActive="active"> Orders </a>
-            <a mat-button [routerLink]="'/product'" routerLinkActive="active"> Products </a>    
-          </div>
-        </mat-toolbar-row>
-      
-        <!-- <mat-toolbar-row>
+  <!-- <mat-toolbar-row>
             <span style="font-size: 12px;">SimpleCRM helps you easily manage your contacts</span>
           </mat-toolbar-row> -->
-      </mat-toolbar>    
-    <router-outlet></router-outlet>
+</mat-toolbar>
+<router-outlet></router-outlet>
