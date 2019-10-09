@@ -1,56 +1,55 @@
-
 <div class="card blue-grey lighten-4">
   <div class="card-content black-text">
-<form [formGroup]="orderForm" (ngSubmit)="onSubmit(orderForm)">
-  <input type="hidden"   id="_id">
-    <mat-form-field class="full-width-field">
-      <input type="text" matInput placeholder="Enter Customer Name"  formControlName="customerName" id="customerName">
-    </mat-form-field>
-  <br/>
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit(orderForm)">
+      <input type="hidden" id="_id">
+      <mat-form-field class="full-width-field">
+        <input type="text" matInput placeholder="Enter Customer Name" formControlName="customerName" id="customerName">
+      </mat-form-field>
+      <br />
 
-  <mat-form-field class="full-width-field">
-    <input type="number" matInput placeholder="Contact"  formControlName="customerContact" id="customerContact">
-  </mat-form-field>
-<br/>
-<div formArrayName="products" *ngFor="let product of this.orderForm.get('products').controls; let i=index">
-<div  [formGroupName]="i">
-<mat-form-field class="afull-width-field">
-  <input type="text" matInput placeholder="Enter Product Name"  formControlName="productName" [id]="'productName' +i" >
-</mat-form-field>
-<mat-form-field class="bfull-width-field">
-  <input type="Number" matInput placeholder="Price"  formControlName="price" [id]="'price' +i">
-</mat-form-field>
+      <mat-form-field class="full-width-field">
+        <input type="number" matInput placeholder="Contact" formControlName="customerContact" id="customerContact">
+      </mat-form-field>
+      <br />
+      <div formArrayName="products" *ngFor="let product of this.orderForm.get('products').controls; let i=index">
+        <div [formGroupName]="i">
+          <mat-form-field class="afull-width-field">
+            <input type="text" matInput placeholder="Enter Product Name" formControlName="productName"
+              [id]="'productName' +i">
+          </mat-form-field>
+          <mat-form-field class="bfull-width-field">
+            <input type="Number" matInput placeholder="Price" formControlName="price" [id]="'price' +i">
+          </mat-form-field>
 
-<mat-form-field class="cfull-width-field" >
-  <input type="Number" matInput placeholder="Enter Quantity"  formControlName="quantity" [id]="'quantity' +i">
-</mat-form-field>
+          <mat-form-field class="cfull-width-field">
+            <input type="Number" matInput placeholder="Enter Quantity" formControlName="quantity" [id]="'quantity' +i">
+          </mat-form-field>
 
-<mat-form-field class="dfull-width-field">
-  <input type="number" matInput placeholder="Total" formControlName="total" [id]="'total' +i">
-  </mat-form-field>
-  <div  *ngIf="orderForm.get('products').length>1">
-    <button type="button" mat-mini-fab color="accent" title="remove product"
-     (click)="removeProductButtonClick(i)">
-      x
-  </button>    <!--    -->
+          <mat-form-field class="dfull-width-field">
+            <input type="number" matInput placeholder="Total" formControlName="total" [id]="'total' +i">
+          </mat-form-field>
+          <div *ngIf="orderForm.get('products').length>1">
+            <button type="button" mat-mini-fab color="accent" title="remove product"
+              (click)="removeProductButtonClick(i)">
+              x
+            </button> <!--    -->
+          </div>
+          <br />
+        </div>
+
       </div>
-  <br/>
-  </div>
+      <div>
+        <button type="button" class="btn btn-primary" (click)="addProductButtonClick(i)">add row</button>
 
+      </div>
+      <!-- <label for="Total Amount"> Total Amount</label> -->
+      <mat-form-field>
+        <input type="number" matInput placeholder="Total Amount" formControlName="totalAmount" id="totalAmount">
+      </mat-form-field>
+      <br />
+      <button mat-raised-button color="primary" type="submit" value="submit" >
+        Submit </button>
+        <button mat-raised-button  color="accent" class="resetbtn" type="button" (click)="resetForm(orderForm)" >Reset</button>
+    </form>
   </div>
-  <div>
-<button type="button" class="btn btn-primary" (click)="addProductButtonClick(i)">add row</button>
-
-    </div>
-  <!-- <label for="Total Amount"> Total Amount</label> -->
-  <mat-form-field>
-    <input type="number" matInput placeholder="Total Amount" formControlName="totalAmount" id="totalAmount">
-    </mat-form-field>
-  <br/>
-<button mat-raised-button color="primary" type = "submit"
-          value = "submit"
-          (click) = "onSubmit(orderForm)" >
-       Submit  </button>
-</form>
-</div>
 </div>
