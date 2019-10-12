@@ -16,13 +16,14 @@ export class ProductComponent implements OnInit {
   status:Status[];
 
   ngOnInit() {
+    this.resetForm();
+    this.refreshProductList();
     this.status=[{Id:1,name:"Active"},
     {Id:2,name:"Hold"},
     {Id:3,name:"Pause"}
 
     ]
-    this.resetForm();
-    this.refreshProductList();
+    
   }
 
   resetForm(form?: NgForm) {
@@ -37,22 +38,36 @@ export class ProductComponent implements OnInit {
 
     };
   }
-
+ 
   onSubmit(form: NgForm) {
-
+    //console.log(form.value._id);
+     if(form.value._id == null){
+     
       this.productService.postProduct(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refreshProductList();
-        M.toast({ html: 'Saved successfully', classes: 'rounded' });
+        var toastHTML =
+        '<span style="color:black">Saved Successfuly</span>';
+      M.toast({ html: toastHTML });
       });
-  }
-    onUp(form:NgForm){
+    }
+     else{
       this.productService.putProduct(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refreshProductList();
-        M.toast({ html: 'Updated successfully', classes: 'rounded' });
+        var toastHTML =
+        '<span style="color:black">Updated Successfuly</span>';
+      M.toast({ html: toastHTML });
       });
     }
+  }
+    // onUp(form:NgForm){
+    //   this.productService.putProduct(form.value).subscribe((res) => {
+    //     this.resetForm(form);
+    //     this.refreshProductList();
+    //     M.toast({ html: 'Updated successfully', classes: 'rounded' });
+    //   });
+    // }
 
   refreshProductList(){
     this.productService.getProductList().subscribe((res)=>{
@@ -62,10 +77,12 @@ export class ProductComponent implements OnInit {
   }
 
   onEdit(rog:Product){
+    
     this.productService.selectedProduct=rog;
   }
 
   onDelete(_id:string, form:NgForm){
+    if(confirm("Are you sure to delete this record?")== true){
     this.productService.deleteProduct(_id).subscribe((res)=>
     {
       this.refreshProductList();
@@ -73,4 +90,5 @@ export class ProductComponent implements OnInit {
       M.toast({html:'deleted Successfully', classes:"rounded"});
     })
   }
+}
 }

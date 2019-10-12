@@ -46,10 +46,13 @@ return res.status(400).send(`No Records with given id  ${ req.params.id}`);
         orderDate: new Date(),
         customerName: req.body.customerName,
         customerContact: req.body.customerContact,
+        products:[{
         productName:req.body.productName,
         quantity:req.body.quantity,
         rate:req.body.rate,
-        totalAmount:req.body.totalAmount
+        total:req.body.total
+    }],
+    totalAmount:req.body.totalAmount
     };
 order.findByIdAndUpdate(req.params.id,{$set:rog},{new:true},(err,doc)=>
 {
@@ -79,10 +82,14 @@ route.post('/', (req,res)=>
         orderDate: new Date(),
         customerName: req.body.customerName,
         customerContact: req.body.customerContact,
-        productName:req.body.productName,
-        quantity:req.body.quantity,
-        rate:req.body.rate,
-        totalAmount:req.body.totalAmount
+        products:[
+            req.body.products
+        // productName:req.body.productName,
+        // quantity:req.body.quantity,
+        // rate:req.body.rate,
+        // total:req.body.total
+    ],
+    totalAmount:req.body.totalAmount
     })
     
 

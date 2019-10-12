@@ -1,0 +1,37 @@
+<mat-card>
+    <div class="row">
+      <div class="col">
+
+
+<div class="card blue-grey lighten-4">
+<table class="responsive-table highlight">
+    <thead>
+      <tr>
+        <th>CustomerName</th>
+        <th>Contact</th>
+        <!-- <th>Product Name</th>
+        <th>Price</th> 
+        <th>quantity</th> -->
+        <th>Total Amount</th>
+      </tr>
+    </thead>
+    <tr *ngFor='let peo of orderService.orders'>
+      <td> {{peo.customerName}}</td>
+      <td> {{peo.customerContact}}</td>
+      <!-- <td>{{peo.products.productName}}</td>
+      <td>{{peo.products.rate}}</td>
+      <td>{{peo.products.quantity}}</td> -->
+       <td>{{peo.totalAmount}}</td>
+      <!-- <a class="action-btn" (click)="onEdit(peo)">
+        <i class="material-icons">edit</i>
+      </a>
+      <a class="action-btn" (click)="onDelete(peo._id)">
+        <i class="material-icons ">delete</i>
+      </a> -->
+    </tr>
+  </table>
+</div>
+</div>
+
+</div>
+</mat-card>

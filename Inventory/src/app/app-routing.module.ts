@@ -7,6 +7,7 @@ import { ProductComponent } from "./product/product.component";
 import { SettingComponent } from "./setting/setting.component";
 import { PeopleComponent } from "./people/people.component";
 import { StudentComponent } from "./student/student.component";
+import { ManageorderComponent } from './manageorder/manageorder.component';
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: "setting", component: SettingComponent },
   { path: "people", component: PeopleComponent },
   { path: "student", component: StudentComponent },
+  { path: "manageorder", component: ManageorderComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" }
 ];
 

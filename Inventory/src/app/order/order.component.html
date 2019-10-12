@@ -1,24 +1,33 @@
 <div class="card blue-grey lighten-4">
   <div class="card-content black-text">
     <form [formGroup]="orderForm" (ngSubmit)="onSubmit(orderForm)">
-      <input type="hidden" id="_id">
+      <input type="hidden"  formControlName="_id" id="_id">
       <mat-form-field class="full-width-field">
-        <input type="text" matInput placeholder="Enter Customer Name" formControlName="customerName" id="customerName">
+        <input type="text" matInput placeholder="Enter Customer Name" formControlName="customerName" id="customerName"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.customerName.errors }" >
+        <div *ngIf=" (f.customerName.dirty || f.customerName.touched) && submitted && f.customerName.errors" class="invalid-feedback">
+        <div *ngIf="f.customerName.errors.required">Customer Name is required</div>
+      </div>
       </mat-form-field>
       <br />
-
+     
       <mat-form-field class="full-width-field">
-        <input type="number" matInput placeholder="Contact" formControlName="customerContact" id="customerContact">
+        <input type="number" matInput placeholder="Contact" formControlName="customerContact" id="customerContact" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.customerContact.errors }">
+        <div *ngIf=" (f.customerContact.dirty || f.customerContact.touched) && submitted && f.customerContact.errors" class="invalid-feedback">
+        <div *ngIf="f.customerContact.errors.required">Customer Contact is required</div>
+        <div *ngIf="f.customerContact.errors.maxLength">customerContact must be of 10 digits</div>
+      </div>
       </mat-form-field>
       <br />
+    
       <div formArrayName="products" *ngFor="let product of this.orderForm.get('products').controls; let i=index">
         <div [formGroupName]="i">
           <mat-form-field class="afull-width-field">
             <input type="text" matInput placeholder="Enter Product Name" formControlName="productName"
               [id]="'productName' +i">
+            
           </mat-form-field>
           <mat-form-field class="bfull-width-field">
-            <input type="Number" matInput placeholder="Price" formControlName="price" [id]="'price' +i">
+            <input type="Number" matInput placeholder="Price" formControlName="rate" [id]="'rate' +i">
           </mat-form-field>
 
           <mat-form-field class="cfull-width-field">

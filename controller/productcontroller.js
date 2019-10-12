@@ -43,7 +43,7 @@ return res.status(400).send(`No Records with given id  ${ req.params.id}`);
     var rog={
     
     
-        productName: req.body.firstName,
+        productName: req.body.productName,
         quantity: req.body.quantity,
         rate: req.body.rate
         

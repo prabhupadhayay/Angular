@@ -3,8 +3,8 @@ export class Order{
     orderDate:String;
     customerName:String;
     customerContact:Number;
-    productName:String;
-    rate:Number;
-    quantity:Number;
-    totalAmount:Number; 
+    totalAmount:Number;
+    products:[
+]; 
+
 }

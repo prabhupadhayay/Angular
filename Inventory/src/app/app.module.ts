@@ -25,6 +25,7 @@ import { PeopleService } from "./shared/people/people.service";
 import { ProductService } from "./shared/product/product.service";
 import { OrderService } from "./shared/order/order.service";
 import { InterceptorService } from "./shared/errorhandler/interceptor.service";
+import { ManageorderComponent } from './manageorder/manageorder.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { InterceptorService } from "./shared/errorhandler/interceptor.service";
     OrderComponent,
     SettingComponent,
     PeopleComponent,
-    StudentComponent
+    StudentComponent,
+    ManageorderComponent
   ],
   imports: [
     BrowserModule,

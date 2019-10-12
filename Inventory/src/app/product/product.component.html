@@ -1,87 +1,80 @@
-<div class="row">
-  <div class="col s12 ">
-    <div class="card blue-grey lighten-4">
-      <div class="card-content black-text">
+<mat-card>
+  <div class="row">
+    <div class="col s12 ">
+      <div class="card blue-grey lighten-4">
+        <div class="card-content black-text">
           <div class="row">
             <div class='col s5'>
               <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
                 <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="productService.selectedProduct._id">
-  <div class="row">
-    <div class="input-field col s12">
-      <input type="text" name="productName" #name="ngModel" [(ngModel)]="productService.selectedProduct.productName" placeholder="" required>
-      <label>Product Name:
-        <label class="red-text">*</label>
-      </label>
-    </div>
-  </div>
-  <div class="row">
-      <div class="input-field col s12">
-        <input type="number" name="quantity" #name="ngModel" [(ngModel)]="productService.selectedProduct.quantity" placeholder="">
-        <label>quantity:</label>
-      </div>
-    </div>
-     <div class="row">
-        <div class="input-field col s12 " >
-          <input type="number" name="rate" #name="ngModel" [(ngModel)]="productService.selectedProduct.rate" placeholder="">
-          <label>Price:</label>
-        </div>
-      </div> 
-<!-- <div class='row'>
-      <div class="input-field col s12">
+                <div class="row">
+                  <div class="input-field col s12">
+                      <mat-form-field class="productName">
+                    <input type="text" matInput placeholder="enter Product name" name="productName" #name="ngModel"
+                      [(ngModel)]="productService.selectedProduct.productName" placeholder="" required>
+                    </mat-form-field>
+                    <label>Product Name:
+                      <label class="red-text">*</label>
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <mat-form-field class="quantity">
+                    <input type="number" name="quantity" matInput placeholder="enter Quantity" #name="ngModel"
+                      [(ngModel)]="productService.selectedProduct.quantity" placeholder="">
+                      </mat-form-field>
+                    <label>quantity:</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 ">
+                    <mat-form-field class="price">
+                    <input type="number" matInput placeholder="enter Price" name="rate" #name="ngModel" [(ngModel)]="productService.selectedProduct.rate"
+                      placeholder="">
+                      </mat-form-field>
+                    <label>Price:</label>
+                  </div>
+                </div>
 
-
-         <select name="status" #name="ngModel" [(ngModel)]="peopleService.selectedPeople.Status">
-
-           <option *ngFor="let sta of status " [value]="sta.Id"> {{sta.name}}</option>
-
-         </select>
-         <label>Select the Status:</label>
-        </div>
-
-      </div> -->
-
-<div class="row">
-  <div class="input-field col s12">
-    <button class="btn btn-custom right" type="button" (click)="resetForm(productForm)" >Reset</button>
-    <button class="btn btn-custom right" type="submit" [disabled]='!productForm.valid'>Submit</button>
-    <button class="btn btn-custom right" type="button"[disabled]="!productForm.valid" (click)="onUp(productForm)" >Update</button>
-
-  </div>
-</div>
-
-
-          </form>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <button class="btn btn-custom right" type="button" (click)="resetForm(productForm)">Reset</button>
+                    <button class="btn btn-custom right" type="submit" [disabled]='!productForm.valid'>Submit</button>
+                    <!-- <button class="btn btn-custom right" type="button" [disabled]="!productForm.valid"
+                      (click)="onUp(productForm)">Update</button> -->
+                  </div>
+                </div>
+              </form>
             </div>
             <div class="col s7">
-<table class="responsive-table highlight">
-  <thead>
-    <tr>
-<th>ProductName</th>
-<th>Quantity</th>
- <th>Price:</th> 
-<!-- <th>status</th> -->
-<th></th>
-    </tr>
-  </thead>
-  <tr *ngFor='let peo of productService.products'>
-    <td>{{peo.productName}}</td>
-    <td>{{peo.quantity}}</td>
-     <td>{{peo.rate}}</td> 
-    <!-- <td>{{peo.Status}}</td> -->
-    <a class= "action-btn" (click)="onEdit(peo)">
-      <i class="material-icons">edit</i>
-    </a>
-    <a class= "action-btn" (click)="onDelete(peo._id,productForm)">
-        <i class="material-icons ">delete</i>
-      </a>
-  </tr>
-</table>
+              <table class="responsive-table highlight">
+                <thead>
+                  <tr>
+                    <th>ProductName</th>
+                    <th>Quantity</th>
+                    <th>Price:</th>
+                    <!-- <th>status</th> -->
+                    <th></th>
+                  </tr>
+                </thead>
+                <tr *ngFor='let peo of productService.products'>
+                  <td>{{peo.productName}}</td>
+                  <td>{{peo.quantity}}</td>
+                  <td>{{peo.rate}}</td>
+                  <!-- <td>{{peo.Status}}</td> -->
+                  <a class="action-btn" (click)="onEdit(peo)">
+                    <i class="material-icons">edit</i>
+                  </a>
+                  <a class="action-btn" (click)="onDelete(peo._id,productForm)">
+                    <i class="material-icons ">delete</i>
+                  </a>
+                </tr>
+              </table>
             </div>
-
-
-
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</mat-card>

@@ -1,96 +1,70 @@
-
-
 <mat-card>
-<div class="row">
-  <div class="col s12 ">
-    <div class="card blue-grey lighten-4">
-      <div class="card-content black-text">
+  <div class="row">
+    <div class="col s12 ">
+      <div class="card blue-grey lighten-4">
+        <div class="card-content black-text">
           <div class="row">
             <div class='col s5'>
               <form #customerForm="ngForm" (ngSubmit)="onSubmit(customerForm)">
                 <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="customerService.selectedCustomer._id">
-
-  <div class="row">
-    <div class="input-field col s12">
-      <mat-form-field class="customerName">
-      <input type="text" matInput placeholder="enter Customer name" name="customerName" #name="ngModel" [(ngModel)]="customerService.selectedCustomer.customerName" placeholder="" required>
-</mat-form-field>
-      <label>Customer Name:
-        <label class="red-text">*</label>
-      </label>
-    </div>
-  </div>
-  <div class="row">
-      <div class="input-field col s12">
-        <mat-form-field class="contact">
-        <input type="number"  matInput placeholder="contact" name="customerContact" #name="ngModel" [(ngModel)]="customerService.selectedCustomer.customerContact" placeholder="">
-</mat-form-field>
-        <label>Contact:</label>
-      </div>
-    </div>
-    <!-- <div class="row">
-        <div class="input-field col s12 datepicker" >
-          <input type="date" class="datepicker" name="dob" #name="ngModel" [(ngModel)]="peopleService.selectedPeople.dob" placeholder="Enter Date of Birth">
-          <label>dob:</label>
-        </div>
-      </div> -->
-<!-- <div class='row'>
-      <div class="input-field col s12">
-
-
-         <select name="status" #name="ngModel" [(ngModel)]="peopleService.selectedPeople.Status">
-
-           <option *ngFor="let sta of status " [value]="sta.Id"> {{sta.name}}</option>
-
-         </select>
-         <label>Select the Status:</label>
-        </div>
-
-      </div> -->
-
-<div class="row">
-  <div class="input-field col s12">
-    <button class="btn btn-custom right" type="button" (click)="resetForm(customerForm)" >Reset</button>
-    <button class="btn btn-custom right" type="submit" [disabled]='!customerForm.valid'>Submit</button>
-    <button class="btn btn-custom right" type="button"[disabled]="!customerForm.valid" (click)="onUp(customerForm)" >Update</button>
-
-  </div>
-</div>
-
-
-          </form>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <mat-form-field class="customerName">
+                      <input type="text" matInput placeholder="enter Customer name" name="customerName" #name="ngModel"
+                        [(ngModel)]="customerService.selectedCustomer.customerName" placeholder="" required>
+                    </mat-form-field>
+                    <label>Customer Name:
+                      <label class="red-text">*</label>
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <mat-form-field class="contact">
+                      <input type="number" matInput placeholder="contact" name="customerContact" #name="ngModel"
+                        [(ngModel)]="customerService.selectedCustomer.customerContact" placeholder="">
+                    </mat-form-field>
+                    <label>Contact:</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <button class="btn btn-custom right" type="button" name="resetbtn"  (click)="resetForm(customerForm)" id="resetbtn" [disabled]="setFlag.flag!">Reset</button>
+                    <button class="btn btn-custom right" type="submit" name="submitbtn" [disabled]='!customerForm.valid'  >Submit</button>
+                    <!-- <button class="btn btn-custom right" type="button" name="updatebtn" [disabled]="!customerForm.valid"
+                      (click)="onUp(customerForm)">Update</button> -->
+                  </div>
+                </div>
+              </form>
             </div>
             <div class="col s7">
-<table class="responsive-table highlight">
-  <thead>
-    <tr>
-<th>Customer Name</th>
-<th>Contact</th>
-<!-- <th>dob:</th> -->
-<!-- <th>status</th> -->
-<th></th>
-    </tr>
-  </thead>
-  <tr *ngFor='let peo of customerService.customers'>
-    <td>{{peo.customerName}}</td>
-    <td>{{peo.customerContact}}</td>
-    <!-- <td>{{peo.dob}}</td> -->
-    <!-- <td>{{peo.Status}}</td> -->
-    <a class= "action-btn" (click)="onEdit(peo)">
-      <i class="material-icons">edit</i>
-    </a>
-    <a class= "action-btn" (click)="onDelete(peo._id,customerForm)">
-        <i class="material-icons ">delete</i>
-      </a>
-  </tr>
-</table>
+              <table class="responsive-table highlight">
+                <thead>
+                  <tr>
+                    <th>Customer Name</th>
+                    <th>Contact</th>
+                    <!-- <th>dob:</th> -->
+                    <!-- <th>status</th> -->
+                    <th></th>
+                  </tr>
+                </thead>
+                <tr *ngFor='let peo of customerService.customers'>
+                  <td>{{peo.customerName}}</td>
+                  <td>{{peo.customerContact}}</td>
+                  <!-- <td>{{peo.dob}}</td> -->
+                  <!-- <td>{{peo.Status}}</td> -->
+                  <a class="action-btn" (click)="onEdit(peo)" (click)="setFlag()" >
+                    <i class="material-icons">edit</i>
+                  </a>
+                  <a class="action-btn" (click)="onDelete(peo._id,customerForm)">
+                    <i class="material-icons ">delete</i>
+                  </a>
+                </tr>
+              </table>
             </div>
-
-
-
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </mat-card>

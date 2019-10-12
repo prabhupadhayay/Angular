@@ -3,3 +3,6 @@ export class Status{
     public name:string;
   
   }
+  // export class Flag{
+  //   flag:Boolean;
+  // }

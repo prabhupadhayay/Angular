@@ -6,11 +6,11 @@ Schema = mongoose.Schema;
         orderDate :{type:String},
         customerName:{type:String},
         customerContact:{type:Number},
-        productName:{type:String},
-        rate:{type:Number},
-        quantity:{type:Number},
-        totalAmount:{type:Number}
-
+        totalAmount:{type:Number},
+        products:[{
+        type:Array
+        }],
+       
         });
     
   module.exports={order};
