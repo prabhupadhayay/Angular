@@ -11,7 +11,7 @@
                   <div class="input-field col s12">
                     <mat-form-field class="customerName">
                       <input type="text" matInput placeholder="enter Customer name" name="customerName" #name="ngModel"
-                        [(ngModel)]="customerService.selectedCustomer.customerName" placeholder="" required>
+                        [(ngModel)]="customerService.selectedCustomer.customerName" placeholder=""  required>
                     </mat-form-field>
                     <label>Customer Name:
                       <label class="red-text">*</label>
@@ -22,7 +22,7 @@
                   <div class="input-field col s12">
                     <mat-form-field class="contact">
                       <input type="number" matInput placeholder="contact" name="customerContact" #name="ngModel"
-                        [(ngModel)]="customerService.selectedCustomer.customerContact" placeholder="">
+                        [(ngModel)]="customerService.selectedCustomer.customerContact" placeholder=""  min="0" oninput="validity.valid||(value='');" required>
                     </mat-form-field>
                     <label>Contact:</label>
                   </div>

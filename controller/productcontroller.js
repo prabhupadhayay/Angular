@@ -20,8 +20,9 @@ route.get('/',(req,res)=> {
 
 
 
-route.get('/:id=',(req,res)=>
+route.get('/:id',(req,res)=>
 {
+    //if(id != null){
     if(!ObjectId.isValid(req.params.id))
     return res.status(400).send(`No Records with given id  ${ req.params.id}`);
     
@@ -30,8 +31,46 @@ route.get('/:id=',(req,res)=>
         res.send(doc);
         else
         console.log("error there :" +JSON.stringify(err,undefined,2));
+        
     })
 })
+
+// route.get('',(req,res)=>
+// {
+//     //if(id != null){
+    
+
+//         var rog={
+    
+    
+//             productName: req.body.productName,
+           
+//         };
+
+//     product.find(req.params.productName,{$set:rog},{new:true},(err,doc)=>{
+//         if(!err)
+//         res.send(doc);
+//         else
+//         console.log("error there :" +JSON.stringify(err,undefined,2));
+        
+//     })
+// })
+
+
+//}
+// if(product.productName != null || product.productName != "") {
+    
+    
+//     product.find(req.params.productName,(err,doc)=>{
+//         if(!err)
+//         res.send(doc);
+//         else
+//         console.log("error there :" +JSON.stringify(err,undefined,2));
+        
+//     })
+// }
+
+
 
 
 
@@ -42,7 +81,7 @@ return res.status(400).send(`No Records with given id  ${ req.params.id}`);
 
     var rog={
     
-    
+        
         productName: req.body.productName,
         quantity: req.body.quantity,
         rate: req.body.rate

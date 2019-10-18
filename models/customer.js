@@ -4,7 +4,7 @@ Schema = mongoose.Schema;
     var customer= mongoose.model('customer',{
       
         customerName :{type:String},
-        customerContact:{type:Number}
+        customerContact:{type:Number,unique:true}
        
         });
     

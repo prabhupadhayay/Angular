@@ -5,42 +5,57 @@
         <div class="card-content black-text">
           <div class="row">
             <div class='col s5'>
-              <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
-                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="productService.selectedProduct._id">
+              <form [formGroup]="productForm" (ngSubmit)="onSubmit(productForm)">
+                <input type="hidden" formControlName="_id" id="_id" [(ngModel)]="productService.selectedProduct._id">
                 <div class="row">
-                  <div class="input-field col s12">
-                      <mat-form-field class="productName">
-                    <input type="text" matInput placeholder="enter Product name" name="productName" #name="ngModel"
-                      [(ngModel)]="productService.selectedProduct.productName" placeholder="" required>
-                    </mat-form-field>
-                    <label>Product Name:
+                  <div class="input-field col s12 ">
+                      <div class="productName form-group">
+                          <label>Product Name:
+                              <label class="red-text">*</label>
+                            </label>
+                        <input type="text"  name="productName"  formControlName="productName" id="productName"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.productName.errors }" [(ngModel)]="productService.selectedProduct.productName" >
+                        <div *ngIf=" (f.productName.dirty || f.productName.touched ||f.productName.pristine) && f.submitted && f.productName.errors" class="invalid-feedback">
+                        <div *ngIf="f.productName.errors.required">Product Name is required</div>
+                      </div>
+                      </div>
+                    <!-- <label>Product Name:
                       <label class="red-text">*</label>
-                    </label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <mat-form-field class="quantity">
-                    <input type="number" name="quantity" matInput placeholder="enter Quantity" #name="ngModel"
-                      [(ngModel)]="productService.selectedProduct.quantity" placeholder="">
-                      </mat-form-field>
-                    <label>quantity:</label>
+                    </label> -->
                   </div>
                 </div>
                 <div class="row">
                   <div class="input-field col s12 ">
-                    <mat-form-field class="price">
-                    <input type="number" matInput placeholder="enter Price" name="rate" #name="ngModel" [(ngModel)]="productService.selectedProduct.rate"
-                      placeholder="">
-                      </mat-form-field>
-                    <label>Price:</label>
+                    <div class="quantity form-group">
+                        <label>Quantity:
+                            <label class="red-text">*</label>
+                          </label>
+                      <input type="number" name="quantity"  formControlName="quantity" id="quantity"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.quantity.errors }" [(ngModel)]="productService.selectedProduct.quantity" min="1" oninput="validity.valid||(value='');" >
+                      <div *ngIf=" (f.quantity.dirty || f.quantity.touched ||f.quantity.pristine) && f.submitted && f.quantity.errors" class="invalid-feedback">
+                      <div *ngIf="f.quantity.errors.required">quantity is required</div>
+                    </div>
+                    </div>
+                    <!-- <label>quantity:</label> -->
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12  ">
+                    <div class="price form-group">
+                        <label>Price:
+                            <label class="red-text">*</label>
+                          </label>
+                      <input type="number" name="rate"  formControlName="rate"   id="rate"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.rate.errors }" [(ngModel)]="productService.selectedProduct.rate" min="1" oninput="validity.valid||(value='');" >
+                      <div *ngIf=" (f.rate.dirty || f.rate.touched ||f.rate.pristine) && f.submitted && f.rate.errors" class="invalid-feedback">
+                      <div *ngIf="f.rate.errors.required">price is required</div>
+                    </div>
+                    </div>
+                    <!-- <label>Price:</label> -->
                   </div>
                 </div>
 
                 <div class="row">
-                  <div class="input-field col s12">
+                  <div class="input-field col s12 form-group">
                     <button class="btn btn-custom right" type="button" (click)="resetForm(productForm)">Reset</button>
-                    <button class="btn btn-custom right" type="submit" [disabled]='!productForm.valid'>Submit</button>
+                    <button class="btn btn-custom right" type="submit" [disabled]='!productForm.valid' >Submit</button>
                     <!-- <button class="btn btn-custom right" type="button" [disabled]="!productForm.valid"
                       (click)="onUp(productForm)">Update</button> -->
                   </div>

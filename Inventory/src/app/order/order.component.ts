@@ -114,6 +114,8 @@ export class OrderComponent implements OnInit {
   // }
 
   get f() { return this.orderForm.controls; }
+
+  
   refreshOrderList() {
     this.submitted=false;
     this.orderService.getOrderList().subscribe(res => {

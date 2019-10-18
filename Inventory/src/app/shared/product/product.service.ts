@@ -23,7 +23,9 @@ export class ProductService {
   getProductList(){
     return this.http.get(this.baseurl);
   }
-
+  getProductbyId(id){
+    return this.http.get(this.baseurl + `/${id._id}`,id);
+  }
   putProduct(rog:Product){
     return this.http.put(this.baseurl + `/${rog._id}`,rog);
   }

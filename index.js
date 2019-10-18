@@ -7,8 +7,9 @@ var urlencodedParser = bodyparser.urlencoded({
 var peopleController = require("./controller/peoplecontroller");
 var productController = require("./controller/productcontroller");
 var customerController = require("./controller/customercontroller");
-var userController = require("./controller/usercontroller");
+//var userController = require("./controller/usercontroller");
 var orderController = require("./controller/ordercontroller");
+var Users = require('./routes/Users');
 
 var cors = require("cors");
 
@@ -22,8 +23,13 @@ app.use(
 );
 app.listen(3000, () => console.log("Server Started at 3000"));
 
+
+
+
+
 app.use("/people", peopleController);
 app.use("/api/product", productController);
 app.use("/api/customer", customerController);
-app.use("/api/user", userController);
+//app.use("/api/user", userController);
 app.use("/api/order", orderController);
+app.use('/api/users', Users);
