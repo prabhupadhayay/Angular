@@ -18,7 +18,9 @@
         <a mat-button  [routerLink]="'/manageorder'" routerLinkActive="active">Manage Order </a>
       </div>
       </div>
-      
+      <a mat-button *ngIf="!_authService.loggedIn()"  [routerLink]="'/login'" routerLinkActive="active"> Login </a>
+      <a mat-button *ngIf="!_authService.loggedIn()" [routerLink]="'/register'" routerLinkActive="active"> Register </a>
+      <a mat-button style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a> 
     </div>
  
     

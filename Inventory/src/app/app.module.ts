@@ -14,6 +14,9 @@ import { OrderComponent } from "./order/order.component";
 import { SettingComponent } from "./setting/setting.component";
 import { PeopleComponent } from "./people/people.component";
 import { StudentComponent } from "./student/student.component";
+import { ManageorderComponent } from './manageorder/manageorder.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 import { ClientsModule } from "./clients/clients.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -25,7 +28,8 @@ import { PeopleService } from "./shared/people/people.service";
 import { ProductService } from "./shared/product/product.service";
 import { OrderService } from "./shared/order/order.service";
 import { InterceptorService } from "./shared/errorhandler/interceptor.service";
-import { ManageorderComponent } from './manageorder/manageorder.component';
+import { AuthService } from "./shared/auth/auth.service";
+import{AuthGuard} from './auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +40,9 @@ import { ManageorderComponent } from './manageorder/manageorder.component';
     SettingComponent,
     PeopleComponent,
     StudentComponent,
-    ManageorderComponent
+    ManageorderComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +61,8 @@ import { ManageorderComponent } from './manageorder/manageorder.component';
     PeopleService,
     ProductService,
     OrderService,
+    AuthService,
+    AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,

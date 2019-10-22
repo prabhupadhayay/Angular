@@ -7,17 +7,25 @@ import { ProductComponent } from "./product/product.component";
 import { SettingComponent } from "./setting/setting.component";
 import { PeopleComponent } from "./people/people.component";
 import { StudentComponent } from "./student/student.component";
-import { ManageorderComponent } from './manageorder/manageorder.component';
-
+import { ManageorderComponent } from "./manageorder/manageorder.component";
+import { RegisterComponent } from "./register/register.component";
+import { LoginComponent } from "./login/login.component";
+import { AuthGuard } from "./auth.guard";
 const routes: Routes = [
-  { path: "home", component: HomeComponent },
-  { path: "customer", component: CustomerComponent },
-  { path: "order", component: OrderComponent },
-  { path: "product", component: ProductComponent },
-  { path: "setting", component: SettingComponent },
-  { path: "people", component: PeopleComponent },
-  { path: "student", component: StudentComponent },
-  { path: "manageorder", component: ManageorderComponent },
+  { path: "home", canActivate: [AuthGuard], component: HomeComponent },
+  { path: "customer", canActivate: [AuthGuard], component: CustomerComponent },
+  { path: "order", canActivate: [AuthGuard], component: OrderComponent },
+  { path: "product", canActivate: [AuthGuard], component: ProductComponent },
+  { path: "setting", canActivate: [AuthGuard], component: SettingComponent },
+  { path: "people", canActivate: [AuthGuard], component: PeopleComponent },
+  { path: "student", canActivate: [AuthGuard], component: StudentComponent },
+  {
+    path: "manageorder",
+    canActivate: [AuthGuard],
+    component: ManageorderComponent
+  },
+  { path: "register", component: RegisterComponent },
+  { path: "login", component: LoginComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" }
 ];
 
