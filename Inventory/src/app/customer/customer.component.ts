@@ -2,7 +2,7 @@ import { NgForm } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
 import { CustomerService } from "../shared/customer/customer.service";
 import { Customer } from "../shared/customer/customer";
-import { Status } from "./status";
+
 import { Flag } from "./flag";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
@@ -17,18 +17,14 @@ declare var M: any;
 })
 export class CustomerComponent implements OnInit {
   constructor(public customerService: CustomerService) {}
-  status: Status[];
+  //status: Status[];
   flag: Flag;
 
   ngOnInit() {
     this.resetForm();
     this.refreshCustomerList();
     this.flag = { flag: 1 };
-    this.status = [
-      { Id: 1, name: "Active" },
-      { Id: 2, name: "Hold" },
-      { Id: 3, name: "Pause" }
-    ];
+   
   }
 
   resetForm(form?: NgForm) {

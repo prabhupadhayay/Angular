@@ -25,18 +25,33 @@ function verifyToken(req, res, next) {
 }
 
 router.post('/register', (req, res) => {
-  let userData = req.body
+  //let userData = req.body
+  const today = new Date()
+  const userData = {
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    email: req.body.email,
+    password: req.body.password,
+    created: today,
+    //token:token
+  }
+
   let user = new User(userData)
   user.save((err, registeredUser) => {
     if (err) {
       console.log(err)
     } else {
       let payload = {
-        subject: registeredUser._id
+              _id: registeredUser._id
+              
       }
       let token = jwt.sign(payload, 'secretKey')
       res.status(200).send({
-        token
+        token:token,
+              _id: registeredUser._id,
+              first_name: registeredUser.first_name,
+              last_name: registeredUser.last_name,
+              email: registeredUser.email
       })
     }
   })
@@ -57,11 +72,16 @@ router.post('/login', (req, res) => {
         res.status(401).send('Invalid Password')
       } else {
         let payload = {
-          subject: user._id
+               _id: user._id
+              
         }
         let token = jwt.sign(payload, 'secretKey')
         res.status(200).send({
-          token
+          token:token,
+          _id: user._id,
+          first_name: user.first_name,
+          last_name: user.last_name,
+          email: user.email
         })
       }
     }

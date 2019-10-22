@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../shared/auth/auth.service";
 import { Router } from '@angular/router';
+import { NgForm } from "@angular/forms";
+import { MustMatch } from '../_helpers/must-match.validator';
 
 @Component({
   selector: 'app-register',
@@ -9,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   registerUserData = {}
+  mustMatch={}
   constructor(private _auth: AuthService,
     private _router: Router) { }
 

@@ -28,8 +28,10 @@ import { PeopleService } from "./shared/people/people.service";
 import { ProductService } from "./shared/product/product.service";
 import { OrderService } from "./shared/order/order.service";
 import { InterceptorService } from "./shared/errorhandler/interceptor.service";
+import{TokenInterceptorService} from "./shared/tokeninterceptor/token-interceptor.service";
 import { AuthService } from "./shared/auth/auth.service";
 import{AuthGuard} from './auth.guard';
+import { MustMatchDirective } from './_helpers/must-match.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,8 @@ import{AuthGuard} from './auth.guard';
     StudentComponent,
     ManageorderComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    MustMatchDirective
   ],
   imports: [
     BrowserModule,
@@ -66,6 +69,11 @@ import{AuthGuard} from './auth.guard';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
       multi: true
     }
   ],
